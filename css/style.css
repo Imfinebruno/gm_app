@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-image: url(../img/bg-inicio.jpg);
+    background-size: cover;
+    max-width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-gm {
+    margin-bottom: 50px;
+}
+.usuario, .senha{
+    width: 312px;
+    height: 55px;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    background-color: #DFDFDF;
+    border: none;
+    font-family: inter, helvetica, sans-serif;
+    font-size: 1.2em;
+}
+
+textarea:focus, input:focus, select:focus {
+    outline: 1px solid #0073D2;
+} 
+.btn-login {
+    width: 174px;
+    height: 56px;
+    background-color: #0073D2;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    font-size: 2em;
+    margin-top: 10px;
+} 
+.btn-login:hover {
+    cursor: pointer;
+    background-color: #035293;
+}
