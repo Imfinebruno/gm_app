@@ -22,6 +22,7 @@ $logado = $_SESSION['usuario'];
     <title>EPI's</title>
 </head>
 <body>
+
     <header id="header">
 
         <a id="logo"href=""><img src="img/logo-GM.png" alt=""></a>
@@ -40,47 +41,50 @@ $logado = $_SESSION['usuario'];
 
     <div class="container-epis">
 
-        <form  class="epis" action="">
+        <form  class="epis" action="pedido.php" method="get">
+
+            <!-- <ul>
+                <?php
+                    require("conexao.php");
+                    $sql = "SELECT * FROM produto";
+                    $qr = mysqli_query($conexao, $sql);
+
+                    while ($ln = mysqli_fetch_assoc ($qr) ) {
+
+                        echo '<li class="lista">
+                                    <div>
+                                        <input type="checkbox" name="epis"> 
+                                        <label>'.$ln ['nome_produto'].'</label>
+                                    </div>
+                                    <input type="number" name="qtd" min="0" max="100">
+
+                            </li>';
+                    }
+                ?>                 
+            </ul> -->
+
             <ul>
                 <li class="lista">
                     <div>
-                        <input type="checkbox">
-                        EPI's
+                        <input type="checkbox" name="produto" value="PROTETOR AURICULAR"> PROTETOR AURICULAR
                     </div>
-                    <input type="number" id="qtd" name="qtd" value="0" size="3" maxlenght="3" min="0" max="1000" step="1" >
+                    <input type="number" id="qtd" name="qtd">
                 </li>
+
                 <li class="lista">
                     <div>
-                        <input type="checkbox">
-                        CAPACETE
+                        <input type="checkbox" name="produto" value="CAPACETE"> CAPACETE
                     </div>
-                    <input type="number" id="qtd" name="qtd" value="0" size="3" maxlenght="3" min="0" max="1000" step="1" >
+                    <input type="number" id="qtd" name="qtd">
                 </li>
-                <li class="lista">
-                    <div>
-                        <input type="checkbox">
-                        LUVAS
-                    </div>
-                    <input type="number" id="qtd" name="qtd" value="0" size="3" maxlenght="3" min="0" max="1000" step="1" >
-                </li>
-                <li class="lista">
-                    <div>
-                        <input type="checkbox">
-                        ÓCULOS DE PROTEÇÃO
-                    </div>
-                    <input type="number" id="qtd" name="qtd" value="0" size="3" maxlenght="3" min="0" max="1000" step="1" >
-                </li>
-            
              </ul>
-             
+             <footer >
+                    <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
+            </footer>
         </form>
 
     </div>
-
-    <footer >
-        <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
-    </footer>
-    
+   
 
     <script src="script.js"></script>
 </body>

@@ -48,7 +48,7 @@ $logado = $_SESSION['usuario'];
       <h2>Selecione o centro de custo</h2>
 
      <ul class="lista">
-       <li> <a href="epis.php" id="op1"> EPI's </a> </li>
+       <a href="epis.php" id="op1"> <li> EPI's </li> </a> 
        <li> <a href="" id="op2"> UNIFORMES </a> </li>
        <li> <a href="" id="op3"> FERRAMENTAS </a> </li>
        <li> <a href="" id="op4"> PROCESSOS </a> </li>
