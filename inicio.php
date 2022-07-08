@@ -49,9 +49,10 @@ $logado = $_SESSION['usuario'];
 
      <ul class="lista">
        <a href="epis.php" id="op1"> <li> EPI's </li> </a> 
-       <li> <a href="" id="op2"> UNIFORMES </a> </li>
-       <li> <a href="" id="op3"> FERRAMENTAS </a> </li>
-       <li> <a href="" id="op4"> PROCESSOS </a> </li>
+       <a href="" id="op2"> <li> UNIFORMES </li> </a> 
+       <a href="" id="op3"> <li> FERRAMENTAS </li> </a> 
+       <a href="" id="op4"> <li> PROCESSOS </li> </a> 
+
      </ul>
    </div>
 

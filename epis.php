@@ -43,42 +43,42 @@ $logado = $_SESSION['usuario'];
 
         <form  class="epis" action="pedido.php" method="get">
 
-            <!-- <ul>
+           <ul>
                 <?php
                     require("conexao.php");
                     $sql = "SELECT * FROM produto";
                     $qr = mysqli_query($conexao, $sql);
 
                     while ($ln = mysqli_fetch_assoc ($qr) ) {
-
-                        echo '<li class="lista">
+                        echo'<li class="lista">
                                     <div>
-                                        <input type="checkbox" name="epis"> 
-                                        <label>'.$ln ['nome_produto'].'</label>
+                                        <input type="checkbox" name="produto[]" value="'.$ln['nome_produto'].'"> 
+                                        <label>'.$ln['nome_produto'].'</label>
                                     </div>
-                                    <input type="number" name="qtd" min="0" max="100">
-
+                                    <input type="number" name="qtd[]" min="0" max="100">
                             </li>';
                     }
                 ?>                 
-            </ul> -->
+            </ul>
+            
 
-            <ul>
+            <!-- <ul>
                 <li class="lista">
                     <div>
-                        <input type="checkbox" name="produto" value="PROTETOR AURICULAR"> PROTETOR AURICULAR
+                        <input type="checkbox" name="produto[]" value="PROTETOR AURICULAR"> PROTETOR AURICULAR
                     </div>
-                    <input type="number" id="qtd" name="qtd">
+                    <input type="number" id="qtd" name="qtd[]">
                 </li>
 
                 <li class="lista">
                     <div>
-                        <input type="checkbox" name="produto" value="CAPACETE"> CAPACETE
+                        <input type="checkbox" name="produto[]" value="CAPACETE"> CAPACETE
                     </div>
-                    <input type="number" id="qtd" name="qtd">
+                    <input type="number" id="qtd" name="qtd[]">
                 </li>
-             </ul>
-             <footer >
+             </ul> -->
+            
+            <footer>
                     <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
             </footer>
         </form>
