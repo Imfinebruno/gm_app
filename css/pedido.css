@@ -1,0 +1,266 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  padding: 0px;
+  padding-inline-start: 0px;
+}
+a {
+  text-decoration: none;
+  /* color: white; */
+}
+a:visited{
+  color: white;
+}
+
+#logo img {
+  width: 70px;
+  height: 70px;
+  margin: 20px;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #0073D2;
+}
+
+#menu {
+  text-align: center;
+  /* display: none; */
+  visibility: hidden;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  transition: .3s ease;
+  height: 0px;
+  width: 100%;
+  right: 0px;
+  margin-top: 0px;
+  padding-top: 50px;
+  background: #0073D2;
+  font-family: inter, helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.1em;
+}
+
+#menu a {
+  margin: 0 auto;
+  width: 500px;
+  display: block;
+  padding: .5rem;
+  height: 0px;
+  margin-bottom: 70px;
+}
+
+#menu a:hover {
+  color: #e7e7e7;
+}
+
+#btn-mobile  {
+  margin: 20px;
+  transform: rotate(-15deg);
+  transition: .3s ease;
+  cursor: pointer;
+}
+
+#nav.active #menu {
+  display: flex;
+  visibility: visible;
+  height: 100vh;
+  font-size: 3em;
+}
+
+#nav.active #btn-mobile {
+  transform: rotate(15deg);
+  transition: .3s ease;
+}
+
+/* .container-pedido {
+  width: 100%;
+  margin-top: 50px;
+
+} */
+
+.pedido {
+  margin: 0 auto;
+}
+.pedido h1{
+  margin-top: 50px;
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+.resumo{
+  margin: 0 auto;
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  color: white;
+  background-color: #0073D2;
+  width: 700px;
+}
+.tabela{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  padding-left: 30px;
+  flex-wrap: wrap;
+}
+
+/*LINHA HORIZONTAL*/
+.linha1{
+  width: 100%;
+  margin: 0px;
+  padding: 0;
+}
+
+/* LINHA VERTICAL */
+/* .linha2{
+  position: absolute;
+  left: 50%;
+  border-right: 1px solid white;
+  height: ;
+} */
+
+hr {
+    margin: 0px;
+}
+.itens {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  padding-left: 30px;
+  text-transform: uppercase;
+
+}
+
+footer{
+  width: 700px;
+  margin: 0 auto;
+}
+.footer-1 {
+  top: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  z-index: 1;
+}
+#confirmar {
+  padding: 20px 50px 20px 50px;
+  font-family: inter, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 3em;
+  color: white;
+  background-color: #0073D2;
+  border: none;
+  cursor: pointer;
+}
+
+.voltar-btn{
+  padding: 20px 50px 20px 50px;
+  font-family: inter, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 3em;
+  color: white;
+  background-color: #035293;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.footer-2{
+  top: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  z-index: 1;
+}
+.cancelar-btn{
+  padding: 20px 20px 20px 20px;
+  font-family: inter, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  color: white;
+  background-color: #9E0C0C;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+@media (max-width: 720px) {
+  #header {
+    background: #fff;
+  }
+  #menu {
+    margin-top: -30px;
+    padding-top: 100px;
+  }
+
+  #menu a {
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .resumo{
+    width: 100%;
+  }
+  .itens {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .itens p :nth-child(1){
+    width: 50%;
+  }
+  .linha2{
+    border: none;
+  }
+
+  footer{
+    width: 100%;
+  }
+  .footer-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  #confirmar {
+    font-size: 1.5em;
+    padding: 15px 20px 15px 20px;
+    margin: 0px;
+  }
+  .voltar-btn{
+    font-size: 1.5em;
+    padding: 15px 20px 15px 20px;
+    margin: 0px;
+  }
+  .cancelar-btn{
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px;
+    font-size: 1.2em;
+  }
+}

@@ -29,8 +29,7 @@ $logado = $_SESSION['usuario'];
 
     <nav id="nav">
       <ul id="menu">
-        <li><a href="">HISTÓRICO</a></li>
-        <!-- <li><a href="">USUÁRIO E SENHA</a></li> -->
+        <li><a href="historico.php">HISTÓRICO</a></li>
         <li><a href="logout.php">SAIR <-</a></li>
       </ul>
       
@@ -48,10 +47,11 @@ $logado = $_SESSION['usuario'];
       <h2>Selecione o centro de custo</h2>
 
      <ul class="lista">
-       <li> <a href="epis.php" id="op1"> EPI's </a> </li>
-       <li> <a href="" id="op2"> UNIFORMES </a> </li>
-       <li> <a href="" id="op3"> FERRAMENTAS </a> </li>
-       <li> <a href="" id="op4"> PROCESSOS </a> </li>
+       <a href="epis.php" id="op1"> <li> EPI's </li> </a> 
+       <a href="uniformes.php" id="op2"> <li> UNIFORMES </li> </a> 
+       <a href="" id="op3"> <li> FERRAMENTAS </li> </a> 
+       <a href="" id="op4"> <li> PROCESSOS </li> </a> 
+
      </ul>
    </div>
 

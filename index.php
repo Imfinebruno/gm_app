@@ -9,7 +9,7 @@ if (isset($_POST['entrar'])){
 	$usuario=$_POST['usuario'];
 	$senha=$_POST['senha'];
 
-    $query = "SELECT * FROM usuario WHERE usuario = '$usuario' AND senha = '$senha'";
+    $query = "SELECT * FROM usuario_2 WHERE usuario = '$usuario' AND senha = '$senha'";
     $result = mysqli_query ($conexao, $query);
     $row = mysqli_num_rows ($result);
 
@@ -23,7 +23,8 @@ if (isset($_POST['entrar'])){
     else{
         unset ($_SESSION['usuario']);
         unset ($_SESSION['senha']);
-        header('location:index.php');
+        //header('location:index.php');
+        echo "<h2 class='senha-erro'> Usuário ou Senha incorreta! </h2>";
     }
 }
 
@@ -40,7 +41,8 @@ if (isset($_POST['entrar'])){
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <title>LOGIN</title>
+
+    <title>LOGIN GM</title>
 </head>
 <body class = "container">
     <form action="index.php" method="POST">

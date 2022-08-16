@@ -45,7 +45,7 @@ $logado = $_SESSION['usuario'];
            <ul>
                 <?php
                     require("conexao.php");
-                    $sql = "SELECT * FROM produto WHERE categoria_id = 1";
+                    $sql = "SELECT * FROM produto WHERE categoria_id = 2";
                     $qr = mysqli_query($conexao, $sql);
 
                     while ($ln = mysqli_fetch_assoc ($qr) ) {
@@ -58,9 +58,10 @@ $logado = $_SESSION['usuario'];
                             </li>';
                     }
                 ?>                 
-            </ul>            
+            </ul>
+            
             <footer>
-                <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
+                    <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
             </footer>
         </form>
 

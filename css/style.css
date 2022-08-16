@@ -32,7 +32,14 @@ form {
     font-family: inter, helvetica, sans-serif;
     font-size: 1.2em;
 }
-
+.senha-erro{
+    position: absolute;
+    font-family: inter, helvetica, sans-serif;
+    font-size: 1em;
+    color: #DFDFDF;
+    text-transform: uppercase;
+    top: 50px;
+}
 textarea:focus, input:focus, select:focus {
     outline: 1px solid #0073D2;
 } 

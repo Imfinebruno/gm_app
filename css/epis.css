@@ -14,9 +14,11 @@ ul {
 }
 a {
   text-decoration: none;
+  /* color: white; */
+}
+a:visited{
   color: white;
 }
-
 
 #logo img {
   width: 70px;
@@ -105,9 +107,28 @@ a {
   font-weight: 400;
   font-size: 1.5em;
   color: black;;
+  text-transform: uppercase;
 }
 .lista div {
   margin-right: 10px;
+}
+
+/* CHECKBOX */
+.checkbox input{
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+input[type="number"]{
+  outline:none;
+  border: 1px solid #161616;
+  height: 30px;
+  margin: 5px;
+  padding-left: 5px ;
+  font-size: 16px;
+  font-family: inter;
+  font-weight: 600;
 }
 
 footer {
@@ -131,8 +152,6 @@ footer {
   border: none;
   cursor: pointer;
 }
-
-
 
 
 
