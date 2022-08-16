@@ -90,6 +90,17 @@ a:visited{
 
 } */
 
+.lista{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: white;;
+  text-transform: uppercase;
+  margin: 10px;
+}
 .pedido {
   margin: 0 auto;
 }

@@ -1,5 +1,4 @@
 <?php
-
     session_start();
     if((!isset ($_SESSION['usuario']) == true) and (!isset ($_SESSION['senha']) == true))
     { 
@@ -25,11 +24,11 @@
 
     <header id="header">
 
-        <a id="logo"href=""><img src="img/logo-GM.png" alt=""></a>
+        <a id="logo"href="inicio.php"><img src="img/logo-GM.png" alt=""></a>
 
         <nav id="nav">
             <ul id="menu">
-                <li><a href="">HISTÓRICO</a></li>
+                <li><a href="historico.php">HISTÓRICO</a></li>
                 <li><a href="logout.php">SAIR <-</a></li>
             </ul>
         
@@ -38,7 +37,7 @@
 
     </header>
 
-    <div class="epis">
+    <div class="pedido">
             <h1> RESUMO DO PEDIDO </h1>
             <div class="resumo">
                 <div class="tabela">
@@ -47,34 +46,71 @@
                 </div>
                 <hr class="linha1">
                 <div class="linha2"></div>
-                
-                <?php
-                    $qtd = isset($_GET['qtd'])?$_GET['qtd']:null;
 
+                <?php
+
+                    $qtd = null;
                     $itens = null;
-                    if(isset($_GET['produto'])){
-                        $itens = $_GET['produto'];
+
+                    $_SESSION['dados'] = array();
+
+                    //QUANTIDADE
+                    if(isset($_POST['qtd'])){
+                        $qtd = $_POST['qtd'];
                     }
+                    
+                    $qtdLimpa= array_filter($qtd);
+                    $qtdLimpa= array_values($qtdLimpa);
+
+
+                    //PRODUTO
+                    if(isset($_POST['produto'])){
+                        $itens = $_POST['produto'];                    
+                    }
+
                     if($itens != null){
                         for($i = 0; $i < count($itens); $i++){
                             echo "<div class='itens'>
-                                        <p> $itens[$i]</p>
+                                        <p>$itens[$i]</p>
+                                        <p>$qtdLimpa[$i]</p>                                                                              
                                 </div>
-                                <hr>";
+                            <hr>";
+
+                            //BOTANDO NUMA ARRAY
+                            array_push(
+                                $_SESSION['dados'],
+                                array(
+                                    'produto' => $itens[$i],
+                                    'quantidade' => $qtdLimpa[$i]
+                                )
+                            );
+
                         }
                     }else{
                         echo "NENHUM ITEM SELECIONADO";
                     }
                     
+                    // dd($itens);
+                    // dd($qtdLimpa);
+                    // function dd ($param){
+                    //     echo "<pre>";
+                    //         print_r($param);
+                    //     echo "</pre>";
+                    // }
                 ?>
             </div>
-            
-            <footer>
-                    <input type="submit" name="solicitar" id="solicitar" value="Solicitar">
-            </footer>
+                <footer>                       
+                        <div class="footer-1">
+                            <a class="voltar-btn" href="javascript:history.back()">EDITAR</a>
 
-
-    </div>
+                            <a href="finalizar.php" id="confirmar"> Confirmar </a>
+                        </div>
+                        <div class="footer-2">
+                            <a class="cancelar-btn" href="inicio.php">CANCELAR</a>
+                        </div>
+                </footer>
+                
+</div>
    
 
     <script src="script.js"></script>

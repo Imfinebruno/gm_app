@@ -17,7 +17,9 @@ a {
   color: white;
 }
 
-
+a:visited{
+  color: white;
+}
 #logo img {
   width: 70px;
   height: 70px;
