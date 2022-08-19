@@ -40,13 +40,13 @@
     <?php
         include("conexao.php");
 
-        $sql = "SELECT * FROM pedido";
+        $sql = "SELECT P.id, P.data_hora FROM pedido_produto PP JOIN pedido P ON P.id = PP.pedido_id GROUP BY P.id";
         $qr = mysqli_query($conexao, $sql); 
 
         while ($ln = mysqli_fetch_assoc ($qr) ){
             echo'<li class="lista">
                     <p>'.$ln['id'].'</p>
-                    <p>'.$ln['data_pedido'].'</p>
+                    <p>'.$ln['data_hora'].'</p>
                 </li>
                 <hr>';
                 

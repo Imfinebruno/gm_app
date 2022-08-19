@@ -42,12 +42,20 @@
 
         session_start();
 
-        foreach($_SESSION['dados'] as $produtos){
-            $conexao = new PDO('mysql:host=localhost;dbname=gm_novo',"root","");
-            $insert = $conexao->prepare("INSERT INTO pedido() VALUES (NULL,?,?,now())");
-            $insert->bindParam(1, $produtos['produto']);
-            $insert->bindParam(2, $produtos['quantidade']);
-            $insert->execute();
+        $conexao = new PDO('mysql:host=localhost;dbname=gm_app',"root","");
+        $insert = $conexao->prepare("INSERT INTO pedido(data_hora) VALUES (now())");
+        $insert->execute();
+        $id = $conexao->lastInsertId();
+        //echo 'Último ID cadastrado: '. $id; //MOSTRANDO O ULTIMO ID NA TELA
+
+        //$produto = 1;
+
+        foreach($_SESSION['dados'] AS $produtos){
+            $insertProduto = $conexao->prepare("INSERT INTO pedido_produto (pedido_id, produto_id, quantidade) VALUES (:id, :prod, :qtd)");
+            $insertProduto->bindParam(":id", $id);
+            $insertProduto->bindParam(":prod", $produto); //RESGATAR O ID DE CADA PRODUTO
+            $insertProduto->bindParam(":qtd", $produtos['quantidade']);
+            $insertProduto->execute();
 
             echo "<div class='itens'>
                     <p>".$produtos['produto']."</p>
@@ -58,7 +66,7 @@
     ?>
 
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>

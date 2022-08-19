@@ -51,6 +51,7 @@
 
                     $qtd = null;
                     $itens = null;
+                    $idItem = null;
 
                     $_SESSION['dados'] = array();
 
@@ -62,15 +63,20 @@
                     $qtdLimpa= array_filter($qtd);
                     $qtdLimpa= array_values($qtdLimpa);
 
-
                     //PRODUTO
                     if(isset($_POST['produto'])){
-                        $itens = $_POST['produto'];                    
+                        $itens = $_POST['produto'];
+                    }
+                    
+                    //ID DO PRODUTO
+                    if(($_POST['idProduto'])){
+                        $itens = $_POST['idProduto'];
                     }
 
                     if($itens != null){
                         for($i = 0; $i < count($itens); $i++){
                             echo "<div class='itens'>
+                                        <p>$idItem[$i]</p>
                                         <p>$itens[$i]</p>
                                         <p>$qtdLimpa[$i]</p>                                                                              
                                 </div>
@@ -90,13 +96,13 @@
                         echo "NENHUM ITEM SELECIONADO";
                     }
                     
-                    // dd($itens);
-                    // dd($qtdLimpa);
-                    // function dd ($param){
-                    //     echo "<pre>";
-                    //         print_r($param);
-                    //     echo "</pre>";
-                    // }
+                    dd($idItem);
+                    dd($qtdLimpa);
+                    function dd ($param){
+                        echo "<pre>";
+                            print_r($param);
+                        echo "</pre>";
+                    }
                 ?>
             </div>
                 <footer>                       

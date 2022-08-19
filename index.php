@@ -9,7 +9,7 @@ if (isset($_POST['entrar'])){
 	$usuario=$_POST['usuario'];
 	$senha=$_POST['senha'];
 
-    $query = "SELECT * FROM usuario_2 WHERE usuario = '$usuario' AND senha = '$senha'";
+    $query = "SELECT * FROM usuario WHERE usuario = '$usuario' AND senha = '$senha'";
     $result = mysqli_query ($conexao, $query);
     $row = mysqli_num_rows ($result);
 
