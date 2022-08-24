@@ -119,6 +119,9 @@ a:visited{
   width: 30px;
   height: 30px;
 }
+.checkbox1{
+  display: none;
+}
 
 input[type="number"]{
   outline:none;

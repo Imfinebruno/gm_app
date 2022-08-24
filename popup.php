@@ -7,59 +7,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
-    <link href="css/historico.css" rel="stylesheet">
-    <title>HISTÓRICO</title>
+    <link href="css/popup.css" rel="stylesheet">
+    <?php echo '<title>PEDIDO</title>' ?>
 </head>
 <body>
 
     <header id="header">
-        <a id="logo"href="inicio.php"><img src="img/logo-GM.png" alt=""></a>
-        <nav id="nav">
-            <ul id="menu">
-                <li><a href="historico.php">HISTÓRICO</a></li>
-                <li><a href="logout.php">SAIR <-</a></li>
-            </ul>
-        <img id="btn-mobile" src="img/setting1.png" alt="">
-        </nav>
 
     </header>
 
-    <div class="pedido" id="pedido">
-        <h1> HISTÓRICO </h1>
-        <div class="resumo">
-            <div class="tabela">
-                <h2>ID PEDIDO</h2>
-                <h2>DATA</h2>
-            </div>
-            <hr class="linha1">
-
-        <?php
-            include("conexao.php");
-
-            $sql = "SELECT P.id, P.data_hora FROM pedido_produto PP JOIN pedido P ON P.id = PP.pedido_id GROUP BY P.id ORDER BY P.id DESC";
-            $qr = mysqli_query($conexao, $sql); 
-
-            while ($ln = mysqli_fetch_assoc ($qr) ){
-                echo'<li class="lista">
-                        <p> Pedido: '.$ln['id'].' | <a href="javascript:abrirPopup()">Visualizar</a></p>
-                        <p>'.$ln['data_hora'].'</p>
-                    </li>
-                    <hr>'; 
-            }
-        ?>  
-        </div>
-    </div>
-
-    
-    <!-- POP-UP -->
-    <div class="popup" id="popup">
+    <div class="pedido">
         <h1> PEDIDO </h1>
-        <div class="resumo-popup">
+        <div class="resumo">
             <div class="tabela">
                 <h2>ITEM</h2>
                 <h2>QUANTIDADE</h2>
             </div>
             <hr class="linha1">
+        <div class="linha2"></div>
 
         <?php
             include("conexao.php");
@@ -69,12 +34,13 @@
             $sql = "SELECT PP.quantidade, PR.nome FROM pedido_produto PP
             JOIN pedido P ON P.id = PP.pedido_id
             JOIN produto PR ON PR.id = PP.produto_id
-            GROUP BY P.id ORDER BY P.id DESC";
+            GROUP BY PR.id ORDER BY P.id DESC";
 
             $qr = mysqli_query($conexao, $sql);
 
             // $ln = mysqli_fetch_array($qr, MYSQLI_ASSOC);
 
+            
             while ($ln = mysqli_fetch_assoc ($qr) ){
                 echo'<li class="lista">
                             <p>'.$ln['nome'].'</p>
@@ -83,6 +49,7 @@
                         <hr>';
             }  
 
+
             dd($ln);
             function dd ($param){
                 echo "<pre>";
@@ -90,6 +57,8 @@
                 echo "</pre>";
             }  
         ?>
+        
+    </div>
     
     <script src="script.js"></script>
 </body>

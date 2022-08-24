@@ -51,8 +51,7 @@ $logado = $_SESSION['usuario'];
                     while ($ln = mysqli_fetch_assoc ($qr) ) {
                         echo'<li class="lista">
                                     <div class="checkbox">
-                                        <input type="checkbox" name="produto[]" class="checkbox" value="'.$ln['nome'].'">
-                                        <input type="hidden" name="idProduto[]" class="checkbox" value="'.$ln['id'].'">
+                                        <input type="checkbox" name="produto[]" class="checkbox" value="'.$ln['id'].'">
                                         <label>'.$ln['nome'].'</label>
                                     </div>
                                     <input type="number" name="qtd[]" min="0" max="1000"></input>

@@ -69,19 +69,27 @@
                     }
                     
                     //ID DO PRODUTO
-                    if(($_POST['idProduto'])){
-                        $itens = $_POST['idProduto'];
-                    }
+                    // if(($_POST['idProduto'])){
+                    //     $idItem = $_POST['idProduto'];
+                    // }
+                    
 
                     if($itens != null){
                         for($i = 0; $i < count($itens); $i++){
-                            echo "<div class='itens'>
-                                        <p>$idItem[$i]</p>
-                                        <p>$itens[$i]</p>
+                            
+                            require("conexao.php");
+                            $sql = "SELECT * FROM produto WHERE id = $itens[$i]";
+                            $qr = mysqli_query($conexao, $sql);
+                                
+                            while ($ln = mysqli_fetch_assoc ($qr) ) {
+                                //echo $ln['nome'];
+                                echo "<div class='itens'>
+                                        <p>".$ln['nome']."</p>                                                                              
                                         <p>$qtdLimpa[$i]</p>                                                                              
-                                </div>
-                            <hr>";
-
+                                    </div>
+                                <hr>";    
+                            }
+                            
                             //BOTANDO NUMA ARRAY
                             array_push(
                                 $_SESSION['dados'],
@@ -96,13 +104,14 @@
                         echo "NENHUM ITEM SELECIONADO";
                     }
                     
-                    dd($idItem);
-                    dd($qtdLimpa);
-                    function dd ($param){
-                        echo "<pre>";
-                            print_r($param);
-                        echo "</pre>";
-                    }
+                    // dd($itens);
+                    // dd($idItem);
+                    // dd($qtdLimpa);
+                    // function dd ($param){
+                    //     echo "<pre>";
+                    //         print_r($param);
+                    //     echo "</pre>";
+                    // }
                 ?>
             </div>
                 <footer>                       

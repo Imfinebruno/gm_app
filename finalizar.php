@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
-    <link href="css/pedido.css" rel="stylesheet">
+    <link href="css/finalizar.css" rel="stylesheet">
     <title>EPI's</title>
 </head>
 <body>
@@ -31,14 +31,14 @@
         <h1> RESUMO DO PEDIDO </h1>
         <div class="resumo">
             <div class="tabela">
-                <h2>ITEM</h2>
+                <h2>ID DO ITEM</h2>
                 <h2>QTD</h2>
             </div>
             <hr class="linha1">
         <div class="linha2"></div>
 
     <?php
-        //include ('conexao.php');
+        include ('conexao.php');
 
         session_start();
 
@@ -53,7 +53,7 @@
         foreach($_SESSION['dados'] AS $produtos){
             $insertProduto = $conexao->prepare("INSERT INTO pedido_produto (pedido_id, produto_id, quantidade) VALUES (:id, :prod, :qtd)");
             $insertProduto->bindParam(":id", $id);
-            $insertProduto->bindParam(":prod", $produto); //RESGATAR O ID DE CADA PRODUTO
+            $insertProduto->bindParam(":prod", $produtos['produto']); //RESGATAR O ID DE CADA PRODUTO
             $insertProduto->bindParam(":qtd", $produtos['quantidade']);
             $insertProduto->execute();
 
@@ -64,8 +64,12 @@
             <hr>";
         }
     ?>
-
     </div>
+    <footer>                       
+            <div class="footer-1">
+                <a href="inicio.php" id="confirmar"> Concluir </a>
+            </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
