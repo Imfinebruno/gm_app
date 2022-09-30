@@ -67,11 +67,11 @@
     <div class="botoes">
         <a class="voltar-btn" href="sitPedidos.php">Voltar</a>
         <?php
-         echo'<form class="alterar" action="sitPedidos.php" method="POST">
+            echo'<form class="alterar" action="enviar.php" method="POST">
                 <input type="submit" class="btn-alterar" value="Enviado" name="enviado">
                 <input type="submit" class="btn-alterar" value="Concluído" name="concluído">
                 <input type="submit" class="btn-alterar" value="Cancelado" name="cancelado">
-                <input type="hidden" id="alterar" class="btn-alterar" value="'.$passedId.'"name="id"> 
+                <input type="hidden" class="btn-alterar" value="'.$passedId.'"name="id"> 
             </form>';
         ?>
     </div>

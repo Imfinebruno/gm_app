@@ -53,25 +53,25 @@
                 }
 
            
-            $alterar = null;
-            $passedId = null;
+            // $alterar = null;
+            // $passedId = null;
 
-            if(isset($_POST['enviado'])){
-                $alterar = $_POST['enviado'];
-                $passedId= $_POST['id'];
-            }
-            else if (isset($_POST['concluído'])){
-                $alterar = $_POST['concluído'];
-                $passedId= $_POST['id'];
-            }
-            else if (isset($_POST['cancelado'])){
-                $alterar = $_POST['cancelado'];
-                $passedId= $_POST['id'];
-            }
+            // if(isset($_POST['enviado'])){
+            //     $alterar = $_POST['enviado'];
+            //     $passedId= $_POST['id'];
+            // }
+            // else if (isset($_POST['concluído'])){
+            //     $alterar = $_POST['concluído'];
+            //     $passedId= $_POST['id'];
+            // }
+            // else if (isset($_POST['cancelado'])){
+            //     $alterar = $_POST['cancelado'];
+            //     $passedId= $_POST['id'];
+            // }
             
 
-            $alterar = "UPDATE pedido SET status = '{$alterar}' WHERE id = '{$passedId}'";
-            mysqli_query($conexao, $alterar);
+            // $alterar = "UPDATE pedido SET status = '{$alterar}' WHERE id = '{$passedId}'";
+            // mysqli_query($conexao, $alterar);
 
         ?>  
         </div>

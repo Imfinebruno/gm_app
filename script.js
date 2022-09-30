@@ -26,3 +26,13 @@ btnMobile.addEventListener('click', toggleMenu);
 function SitPedido(id){
   location.href = "verPedidoSit.php?id="+id;
 }
+
+$.ajax({
+  url: 'enviar.php',
+  method: 'POST',
+  data: {enviado: enviado, concluido: concluido, cancelado: cancelado},
+  success: function(result){
+    $('form').trigger("reset");
+    alert('Alterado com sucesso')
+  }
+})

@@ -235,7 +235,39 @@ hr {
   top: 30%;
 }
 
+.status-alert{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  /* background-color: #e7e7e7; */
+  background-color: #0073D2;
 
+}
+.status-alert h1{
+  margin: 0 auto;
+  font-family: inter, sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+
+}
+.status-alert a{
+  background-color: #024983;
+  font-size: 1.5em;
+  padding: 20px;
+  margin-top: 30px;
+  font-family: inter, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
 
 
 
