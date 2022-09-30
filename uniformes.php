@@ -19,7 +19,7 @@ $logado = $_SESSION['usuario'];
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <link href="css/epis.css" rel="stylesheet">
-    <title>EPI's</title>
+    <title>UNIFORMES</title>
 </head>
 <body>
 

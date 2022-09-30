@@ -7,16 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
-    <link href="css/historico.css" rel="stylesheet">
-    <title>HISTÓRICO</title>
+    <link href="css/sitPedidos.css" rel="stylesheet">
+    <title>PEDIDOS</title>
 </head>
 <body>
 
     <header id="header">
-        <a id="logo"href="inicio.php"><img src="img/logo-GM.png" alt=""></a>
+        <a id="logo"href="inicio-2.php"><img src="img/logo-GM.png" alt=""></a>
         <nav id="nav">
             <ul id="menu">
-                <li><a href="historico.php">HISTÓRICO</a></li>
+                <li><a href="sitPedidos.php">HISTÓRICO</a></li>
                 <li><a href="logout.php">SAIR <-</a></li>
             </ul>
         <img id="btn-mobile" src="img/setting1.png" alt="">
@@ -25,10 +25,11 @@
     </header>
 
     <div class="pedido" id="pedido">
-        <h1> HISTÓRICO </h1>
+        <h1> PEDIDOS </h1>
         <div class="resumo">
             <div class="tabela">
                 <h2>Nº DO PEDIDO</h2>
+                <!-- <span>clique para abrir o pedido</span> -->
                 <h2>DATA</h2>
                 <h2>STATUS</h2>
             </div>
@@ -44,12 +45,34 @@
           
             while($ln = mysqli_fetch_assoc($qr)){
                 echo'<li class="lista">
-                        <p> Pedido:<a onclick = ContentPage(this.id) id ="'.$ln['id'].'">'.$ln['id'].'</a></p>
+                        <p> Pedido: <a onclick = SitPedido(this.id) id ="'.$ln['id'].'">'.$ln['id'].'</a></p>
                         <p>'.$ln['data_hora'].'</p>
-                        <P>'.$ln['status'].'</p>
+                        <p>'.$ln['status'].'</p>
                     </li>
                     <hr>'; 
                 }
+
+           
+            $alterar = null;
+            $passedId = null;
+
+            if(isset($_POST['enviado'])){
+                $alterar = $_POST['enviado'];
+                $passedId= $_POST['id'];
+            }
+            else if (isset($_POST['concluído'])){
+                $alterar = $_POST['concluído'];
+                $passedId= $_POST['id'];
+            }
+            else if (isset($_POST['cancelado'])){
+                $alterar = $_POST['cancelado'];
+                $passedId= $_POST['id'];
+            }
+            
+
+            $alterar = "UPDATE pedido SET status = '{$alterar}' WHERE id = '{$passedId}'";
+            mysqli_query($conexao, $alterar);
+
         ?>  
         </div>
     </div>

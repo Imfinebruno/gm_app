@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <link href="css/finalizar.css" rel="stylesheet">
-    <title>EPI's</title>
+    <title>FINALIZAR PEDIDO</title>
 </head>
 <body>
 
@@ -43,7 +43,7 @@
         session_start();
 
         $conexao = new PDO('mysql:host=localhost;dbname=gm_app',"root","");
-        $insert = $conexao->prepare("INSERT INTO pedido(data_hora) VALUES (now())");
+        $insert = $conexao->prepare("INSERT INTO pedido(data_hora, status) VALUES (now(), 'pendente')");
         $insert->execute();
         $id = $conexao->lastInsertId();
         //echo 'Último ID cadastrado: '. $id; //MOSTRANDO O ULTIMO ID NA TELA

@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <link href="css/historico.css" rel="stylesheet">
-    <title>HISTÓRICO</title>
+    <title>PEDIDO</title>
 </head>
 <body>
 
@@ -24,36 +24,42 @@
 
     </header>
 
-    <div class="pedido" id="pedido">
-        <h1> HISTÓRICO </h1>
-        <div class="resumo">
+    <!-- POP-UP -->
+
+    <div class="popup" id="popup">
+        <div class="resumo-popup">
             <div class="tabela">
-                <h2>Nº DO PEDIDO</h2>
-                <h2>DATA</h2>
-                <h2>STATUS</h2>
+                <h2>ITEM</h2>
+                <h2>QTD</h2>
             </div>
             <hr class="linha1">
 
         <?php
             include("conexao.php");
+            
+            $passedId = $_GET['id'];
 
-            $_SESSION['pedidos'] = array();
-
-            $sql = "SELECT P.id, P.data_hora, P.status FROM pedido_produto PP JOIN pedido P ON P.id = PP.pedido_id GROUP BY P.id ORDER BY P.id DESC";
-            $qr = mysqli_query($conexao, $sql); 
-          
-            while($ln = mysqli_fetch_assoc($qr)){
+            $sql = "SELECT PR.nome, PP.quantidade FROM pedido_produto PP
+            JOIN pedido P ON P.id = PP.pedido_id
+            JOIN produto PR ON PR.id = PP.produto_id
+            WHERE P.id = '{$passedId}'";
+            
+            $qr = mysqli_query($conexao, $sql);
+                        
+            while ($ln = mysqli_fetch_assoc($qr)){
                 echo'<li class="lista">
-                        <p> Pedido:<a onclick = ContentPage(this.id) id ="'.$ln['id'].'">'.$ln['id'].'</a></p>
-                        <p>'.$ln['data_hora'].'</p>
-                        <P>'.$ln['status'].'</p>
+                            <p>'.$ln['nome'].'</p>
+                            <p>'.$ln['quantidade'].'</p>
                     </li>
-                    <hr>'; 
-                }
-        ?>  
+                    <hr>';
+            }
+            echo '<span class="lista-numero"> pedido nº '.$passedId.'</span>';
+        ?>
         </div>
     </div>
-    
+    <div class="voltar-btn">
+        <a href="historico.php" >Voltar</a>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

@@ -5,27 +5,44 @@ include("conexao.php");
 session_start();
 
 if (isset($_POST['entrar'])){
-
+    
 	$usuario=$_POST['usuario'];
 	$senha=$_POST['senha'];
 
-    $query = "SELECT * FROM usuario WHERE usuario = '$usuario' AND senha = '$senha'";
-    $result = mysqli_query ($conexao, $query);
-    $row = mysqli_num_rows ($result);
+    
+    $sql = "SELECT * FROM usuario WHERE usuario = '$usuario' AND senha = '$senha'";
+    $query = mysqli_query ($conexao, $sql);
+    $row = mysqli_num_rows ($query);
+    $nivel = mysqli_fetch_assoc($query);
+    
 
-
-    if(mysqli_num_rows ($result) > 0 )
-    {
+    if($row > 0)
+    {   
+        //$permissao = $nivel['nivel'];
+        $_SESSION['nivel'] = $nivel['nivel'];
         $_SESSION['usuario'] = $usuario;
         $_SESSION['senha'] = $senha;
-        header('location:inicio.php');
+
+        if($_SESSION['nivel'] == 1){
+            header('location:inicio.php');
+        }
+        else if($_SESSION['nivel'] == 2){
+            header('location:inicio-2.php');
+        }
+
+        die();
     }
     else{
         unset ($_SESSION['usuario']);
         unset ($_SESSION['senha']);
-        //header('location:index.php');
-        echo "<h2 class='senha-erro'> Usuário ou Senha incorreta! </h2>";
+        if(empty($usuario) || empty($senha)) {
+            echo "<h2 class='senha-erro'> Você deve digitar seu usuário e senha </h2>";
+        }
+        else{
+            echo "<h2 class='senha-erro'> Usuário ou Senha incorreta </h2>";
+        }
     }
+    
 }
 
 ?>

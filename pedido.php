@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Montserrat&family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
     <link href="css/pedido.css" rel="stylesheet">
-    <title>EPI's</title>
+    <title>PEDIDO</title>
 </head>
 <body>
 
