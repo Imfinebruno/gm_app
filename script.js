@@ -26,6 +26,9 @@ btnMobile.addEventListener('click', toggleMenu);
 function SitPedido(id){
   location.href = "verPedidoSit.php?id="+id;
 }
+function verPedido(id){
+  location.href = "verPedido.php?id="+id;
+}
 
 $.ajax({
   url: 'enviar.php',

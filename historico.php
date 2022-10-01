@@ -44,7 +44,7 @@
           
             while($ln = mysqli_fetch_assoc($qr)){
                 echo'<li class="lista">
-                        <p> Pedido:<a onclick = ContentPage(this.id) id ="'.$ln['id'].'">'.$ln['id'].'</a></p>
+                        <p> Pedido:<a onclick = verPedido(this.id) id ="'.$ln['id'].'">'.$ln['id'].'</a></p>
                         <p>'.$ln['data_hora'].'</p>
                         <P>'.$ln['status'].'</p>
                     </li>
